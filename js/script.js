@@ -1,9 +1,11 @@
+/// <reference path="../typings/globals/jquery/index.d.ts" />
 $(function () {
-  $("p").css("background-color", "#88ffff");  
-  $("input[type=submit]").css("background-color", "#7022ff");  
-  $("h2,input,p").css("color","#11ff11");
-  $("li:last").css("color","#114411"); 
-  $("li:even").css("color","#ff4411"); 
+  $("#list").find("li").css("background-color","#00aaff");
+  $("#list").children("li").css("background-color","#aaaaff");
+  $("#list").parents("div").css("color","#ee2222"); 
+  $("#list").siblings("p").css("color","#00ff00");// same level
+  $("#list").prev("p").css("background-color","yellow");
+  $("#list").next("p").css("background-color","yellow");
   
 
 
