@@ -1,11 +1,20 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 $(function () {
-  
-  $("form").children().not("input:text , textarea, br").remove();
-  var detachedItem= $("li").detach();// preserves the attached event handelers and otther data
+  var link=$("#linkk");
+  console.log(link.attr("href"));// retireve href attribute
+  console.log(link.attr("title"));// retireve title  attribute but undefined
+  link.attr("href","/mewo-mewo");// set href attribute
 
-  $("#content").append(detachedItem);  
+  // do not use in boolean attributes like disabled, checked etc
+  var checkbox= $("#check");
+  checkbox.prop("checked",true);
+  checkbox.prop("disabled",true);
 
-  $("p").empty();// does not remove p but empty else everything including children
+  // val to get values of the elements
+  console.log($("input[type=email]").val());// get
+  $("input[type=email]").val("everythong@akndnv.com");// set
+ 
 
+
+  // these all handle one at a time not all elements
 });
