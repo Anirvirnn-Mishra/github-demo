@@ -1,18 +1,21 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 $(function () {
-  //$("#list").find("li").filter(":even").css("font-weight","bold");// filtered
-  // $("#list").find("li").filter(function (index) 
-  //   {
-  //     if(index===0 )
-  //     {
-  //       return true;
-  //     }
+  // as a child
+   $("ul ul:last").append("<li>last subitem</li>");
+   $("<li>External item</li>").appendTo("ul ul:first");
+   $("<li>External item1</li>").prependTo("ul ul:first");
+   $("ul ul:last").prepend("<li>last subitem1</li>");
+   $("#content").prepend("<h2>before content div</h2>");
 
-  //   }
-  //   ).css("font-weight","bold");// filtered
-    $("li").eq(3).css("font-weight","bold");// filtered
-    $("li").eq(-2).css("font-weight","bold");// filtered
-    $("li").not(3).css("font-style","italic");// opp of filter
+   // as a sibling
+    
+    
+    $(".red-box").before("<div class='yellow-box'>Yellow</div>");
+    $(".red-box").after(function () { 
+      return "<div class='yellow-box'>Yellow</div>";
+     });
+     $(".yellow-box").after($(".blue-box"));// moves the inner element if only one call else it clones
 
+  
 
 });

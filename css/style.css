@@ -132,3 +132,13 @@ h2 {
   transform: scaleX(1); }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.yellow-box {
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 10px 10px 10px 0;
+  padding: 10px;
+  color: #111111;
+  background-color: #ffff21; }
