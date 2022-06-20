@@ -1,16 +1,22 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 $(function () {
 
-  $("a").addClass("fancy-link");// changed class of an element
+  var gallery=$(".gallery");
+  var images=["images/laptop-mobile_small.jpg","images/laptop-on-table_small.jpg","images/people-office-group-team_small.jpg"];
+  gallery.data("availableImages",images);
+  gallery.data("name","something ");
+  
+  console.log(gallery.data());// returns all data associated
+  gallery.removeData("name");// name data does not exist anymore
 
-  $("div").addClass(function (index,currentClass) { 
-    if (currentClass==="dummy") {
-      return "red-box";
-      
-    } 
-   });
-   $(".red-box").removeClass().addClass("yellow-box");
+  console.log($("p:first").data("additional-data"));// prints the property
 
 
+
+
+
+  // var some=gallery.detach();
+  // $("body").prepend(some);
+  
 
 });
