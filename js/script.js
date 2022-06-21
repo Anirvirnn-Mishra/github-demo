@@ -1,21 +1,18 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 $(function () {
+//delegated events are the events that help in assign jq to new added Elements
 
-  function ForImageSwap() {
+// can be used in todo items,, thousand table rows etc
+$("#content").on("click","p",function (param) {$(this).slideToggle();  })
+$("#content").append("<p>new added</p>");
+
+$("#content").on("mouseenter","ul",
+function(e){
   
-
-    var images=["images/laptop-mobile_small.jpg","images/people-office-group-team_small.jpg","images/laptop-on-table_small.jpg"];
-      i=(i+1)%images.length;
-      $(this).fadeOut(function () {
-      $(this).attr("src",images[i]).fadeIn();}); 
-    
-      
-    }
- 
-var i =0;
-// });
-$(".gallery").find("img").first().on("click", ForImageSwap);
-
-
+  $(this).css("font-weight","bold")});
+$("#content").on("mouseleave","ul",
+function(e){
+  
+  $(this).css("font-weight","normal")});
 
 });
