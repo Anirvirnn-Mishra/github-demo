@@ -1,18 +1,14 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 $(function () {
-//delegated events are the events that help in assign jq to new added Elements
+  // PASSING ADDITIONAL DATA TO EVENTS
 
-// can be used in todo items,, thousand table rows etc
-$("#content").on("click","p",function (param) {$(this).slideToggle();  })
-$("#content").append("<p>new added</p>");
+  $("#btn-click").click(
+  {
+    user:"meow",
+    domain:"meowed.com",
+    "something":"someanswer"
 
-$("#content").on("mouseenter","ul",
-function(e){
-  
-  $(this).css("font-weight","bold")});
-$("#content").on("mouseleave","ul",
-function(e){
-  
-  $(this).css("font-weight","normal")});
+  },someFunc);// no neeed to pass any data
+function someFunc(params) { console.log(params.data.user) ; } 
 
 });
