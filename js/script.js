@@ -1,28 +1,18 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 $(function () {
-  var gal= $(".gallery").find("img");
-  gal.css("width","33%").css("opacity","0.7");
-  gal.mouseenter(function () { 
-    $(this).stop().css("opacity","1");
-  });
-  gal.mouseleave(function () { 
-    $(this).stop().css("opacity","0.7");
-  });
-  gal.click(
-    function()
+  // key down is key clicked , key up is key released
+  // keypress is evil!
+   $("html").keydown(
+    function (param) 
     {
-      
-      var source= $(this).attr("src");
-      var img= $("<img>").attr("src",source).css("width","100%");
-      $(".lightbox").empty().append(img).fadeIn(1000);
+       console.log(param.which);// LOGS ASCII 
+       console.log(param.key);// LOGS KEY LETTER
+       console.log(param.keyCode);// LOGS ASCII
+       //if(param.key==="ArrowRight"){$(".blue-box").stop().animate({"margin-left":"+=5px"})}// lags too much 
+       if(param.key==="ArrowRight"){$(".blue-box").stop().css("margin-left","+=5px")} 
+       if(param.key==="ArrowLeft"){$(".blue-box").css("margin-left","-=5px")}
 
     });
-    $(".lightbox").click(
-      function()
-      {
-        
-        $(".lightbox").stop().fadeOut();
-  
-      });
+
 
 });
