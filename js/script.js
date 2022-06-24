@@ -1,18 +1,21 @@
 /// <reference path="../typings/globals/jquery/index.d.ts" />
 $(function () {
-  // key down is key clicked , key up is key released
-  // keypress is evil!
-   $("html").keydown(
-    function (param) 
+
+  // focus and blur
+  var inputs=$("input:text, input:password, textarea, input[type=email], input[type=checkbox]");
+  inputs.focus(function () { $(this).css("box-shadow","0 0 4px #666877"); });
+  inputs.focus(function (e) {
+    $(this).css("box-shadow","0 0 4px #666"); 
+  });
+
+  inputs.blur(function () {console.log($(this).length<3);
+    if($(this).val.length<3)
     {
-       console.log(param.which);// LOGS ASCII 
-       console.log(param.key);// LOGS KEY LETTER
-       console.log(param.keyCode);// LOGS ASCII
-       //if(param.key==="ArrowRight"){$(".blue-box").stop().animate({"margin-left":"+=5px"})}// lags too much 
-       if(param.key==="ArrowRight"){$(".blue-box").stop().css("margin-left","+=5px")}// 
-       if(param.key==="ArrowLeft"){$(".blue-box").css("margin-left","-=5px")}
+      $(this).css("box-shadow","0 0 4px #ff0000");
 
-    });
-
-
+    }
+    else
+     {$(this).css("box-shadow","none");
+     $(this).css("box-shadow","0 0 4px #00ff00");
+  }});
 });
